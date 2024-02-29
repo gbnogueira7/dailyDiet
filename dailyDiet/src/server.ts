@@ -1,18 +1,12 @@
-import fastify from 'fastify'
-import { knex } from './database'
+import { app } from './app'
 import { env } from './env'
-const app = fastify()
 
-app.get('/', async () => {
-  const userTable = await knex('users').select('*')
-
-  return userTable
-})
+const port = 3000
 
 app
   .listen({
     port: env.PORT,
   })
   .then(() => {
-    console.log('Server is running 🚀')
+    console.log(`Server listening on: http://localhost:${port}`)
   })
