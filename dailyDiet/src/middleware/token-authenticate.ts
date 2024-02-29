@@ -1,14 +1,14 @@
-import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify'
+import { FastifyRequest, FastifyReply } from 'fastify'
 
-export async function authenticate(fastify: FastifyInstance) {
-  fastify.addHook(
-    'onRequest',
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      try {
-        await request.jwtVerify() // Verifica se o token é válido
-      } catch (err) {
-        reply.status(401).send({ error: 'Token inválido ou ausente' })
-      }
-    },
-  )
+export async function authenticate(
+  request: FastifyRequest,
+  reply: FastifyReply,
+) {
+  const token = request.jwtVerify() // Verifica se o token é válido
+
+  if (!token) {
+    return reply.status(401).send({
+      error: 'Unauthenticated',
+    })
+  }
 }
