@@ -17,7 +17,6 @@ export async function authRoute(app: FastifyInstance) {
 
     try {
       const user = await knex('users').where({ userName }).first()
-
       if (!user) {
         throw new Error('Usuário não encontrado')
       }
@@ -27,8 +26,10 @@ export async function authRoute(app: FastifyInstance) {
         throw new Error('Senha incorreta')
       }
 
+      const id = user.id
+
       // Gera o token JWT
-      const token = app.jwt.sign({ id: user.id })
+      const token = app.jwt.sign({ id })
 
       reply.send({ token })
     } catch (error) {
