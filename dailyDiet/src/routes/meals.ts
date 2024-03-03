@@ -54,6 +54,7 @@ export async function mealsRoutes(app: FastifyInstance) {
       description: z.string(),
       inDiet: z.boolean(),
     })
+    const createdAt = new Date().toJSON()
 
     const { name, description, inDiet } = mealBodySchema.parse(req.body)
     // Inserir a refeição no banco de dados
@@ -62,7 +63,7 @@ export async function mealsRoutes(app: FastifyInstance) {
       name,
       description,
       inDiet,
-      created_at: new Date(),
+      created_at: createdAt,
       userId: idUser,
     })
 
