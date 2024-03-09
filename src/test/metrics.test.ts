@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, it, describe, beforeEach, expect } from 'vitest'
 import { execSync } from 'node:child_process'
 import request from 'supertest'
-import { app } from '../src/app'
+import { app } from '../app'
 
 describe('users routes', () => {
   beforeAll(async () => {
