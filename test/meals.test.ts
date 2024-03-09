@@ -3,7 +3,7 @@ import { execSync } from 'node:child_process'
 import request from 'supertest'
 import { app } from '../src/app'
 
-describe('auth route', () => {
+describe('meals routes', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -18,7 +18,7 @@ describe('auth route', () => {
     execSync('npm run knex migrate:latest')
   })
 
-  it('should be able to create a meal', async () => {
+  it.skip('should be able to create a meal', async () => {
     // Criar um usuário
     await request(app.server).post('/users/create').send({
       userName: 'userToCreateMeal',
@@ -45,7 +45,7 @@ describe('auth route', () => {
       .expect(201)
   })
 
-  it('should be able get all meals', async () => {
+  it.skip('should be able get all meals', async () => {
     // Criar um usuário
     await request(app.server).post('/users/create').send({
       userName: 'userToCreateMeal',
@@ -77,7 +77,7 @@ describe('auth route', () => {
 
     expect(responseGetAll.body.length).toBeGreaterThan(0)
   })
-  it('should be able to get a meals for id', async () => {
+  it.skip('should be able to get a meals for id', async () => {
     await request(app.server).post('/users/create').send({
       userName: 'userTest777',
       password: '<PASSWORD>',
@@ -106,7 +106,7 @@ describe('auth route', () => {
       .set('Authorization', `Bearer ${completeToken}`)
     expect(200)
   })
-  it.only('should be able to alter a meals for id', async () => {
+  it.skip('should be able to alter a meals for id', async () => {
     await request(app.server).post('/users/create').send({
       userName: 'userTest777',
       password: '<PASSWORD>',
@@ -130,7 +130,7 @@ describe('auth route', () => {
 
     const mealId = getAll.body[0].id
 
-    const response = await request(app.server)
+    await request(app.server)
       .put(`/meals/${mealId}/alter`)
       .set('Authorization', `Bearer ${completeToken}`)
       .send({

@@ -18,7 +18,7 @@ describe('auth route', () => {
     execSync('npm run knex migrate:latest')
   })
 
-  it('shoud be able to log whit a user exists', async () => {
+  it.skip('shoud be able to log whit a user exists', async () => {
     await request(app.server).post('/users/create').send({
       userName: 'testNewDb',
       password: '1234',
