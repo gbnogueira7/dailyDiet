@@ -18,12 +18,16 @@ export async function authRoute(app: FastifyInstance) {
     try {
       const user = await knex('users').where({ userName }).first()
       if (!user) {
-        throw new Error('Usuário não encontrado')
+        return reply.status(401).send({
+          error: 'Usuário não encontrado',
+        })
       }
 
       // Verifica a senha - isso deve ser feito de maneira mais segura, como usando bcrypt
       if (user.password !== password) {
-        throw new Error('Senha incorreta')
+        return reply.status(401).send({
+          error: 'Usuário não encontrado',
+        })
       }
 
       const id = user.id
