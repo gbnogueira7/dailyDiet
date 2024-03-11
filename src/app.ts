@@ -4,11 +4,12 @@ import { authRoute } from './routes/auth'
 import fastifyJwt from '@fastify/jwt'
 import { mealsRoutes } from './routes/meals'
 import { metricsRoute } from './routes/metrics'
+import { env } from './env'
 
 export const app = fastify()
 
 app.register(fastifyJwt, {
-  secret: 'seu_segredo_super_secreto', // Substitua por uma chave secreta mais segura
+  secret: env.JWT_SECRET, // Substitua por uma chave secreta mais segura
 })
 
 app.register(usersRoutes, {
