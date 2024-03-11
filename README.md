@@ -1,5 +1,7 @@
 # Aplicação
-Esta é uma aplicação desenvolvida em typescript, com o query buider knex, usa zod para controle 
+Esta é uma aplicação desenvolvida em typescript, com o query buider knex, e usa zod para controle de variáveis de ambiente.
+
+É uma aplicação de controle de dieta, onde seu uso consiste no registro de refeições, podendo assim ter uma visualização mais facilitada da dieta, resgatando as métricas por usuário.
 
 
 # RN
