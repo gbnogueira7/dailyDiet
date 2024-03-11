@@ -13,9 +13,9 @@ Esta é uma aplicação desenvolvida em typescript, com o query buider knex, e u
 - É possível realizar o login na rota "/" o token é gerado nesta rota.
 
 - A refeição é criada na rota "/meals/create" passando os dados:
-  -[] Nome
-  -[] Descrição
-  -[] Refeição dentro da dieta (Boolean)
+  - [] Nome
+  - [] Descrição
+  - [] Refeição dentro da dieta (Boolean)
 
 - A refeição pode ser alterada na rota "/meals/alter" podendo ser alterados todos os dados acima.
 
@@ -24,9 +24,9 @@ Esta é uma aplicação desenvolvida em typescript, com o query buider knex, e u
 - É possível obter somente uma refeição pela rota "/meals/:id", a refeição deve pertencer ao usuário logado.
 
 - É possível obter as métricas de usuário na rota "/metrics/:id", os dados recebido são:
-  -[] Quantidade de refeições registradas
-  -[] Quantidade total de refeições dentro da dieta
-  -[] Quantidade total de refeições fora da dieta
-  -[] Melhor sequência de refeições dentro da dieta
+  - [] Quantidade de refeições registradas
+  - [] Quantidade total de refeições dentro da dieta
+  - [] Quantidade total de refeições fora da dieta
+  - [] Melhor sequência de refeições dentro da dieta
 
 - O usuário só pode visualizar e editar refeições criadas por ele.
